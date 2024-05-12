@@ -1,0 +1,161 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI (http://jax-ws.java.net). RI's version is Metro/2.4.3 (RELEASE-2.4.3-ad3323c; 2019-01-21T17:46:06+0000) JAXWS-RI/2.3.2 JAXWS-API/2.3.2 JAXB-RI/2.3.2 JAXB-API/2.3.2 git-revision#unknown. --><xs:schema xmlns:tns="http://sw/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://sw/">
+
+<xs:element name="consulta" type="tns:consulta"/>
+
+<xs:element name="consultaResponse" type="tns:consultaResponse"/>
+
+<xs:element name="diccionario" type="tns:diccionario"/>
+
+<xs:element name="diccionarioResponse" type="tns:diccionarioResponse"/>
+
+<xs:element name="euroAdolar" type="tns:euroAdolar"/>
+
+<xs:element name="euroAdolarResponse" type="tns:euroAdolarResponse"/>
+
+<xs:element name="hello" type="tns:hello"/>
+
+<xs:element name="helloResponse" type="tns:helloResponse"/>
+
+<xs:element name="validarDatos" type="tns:validarDatos"/>
+
+<xs:element name="validarDatosResponse" type="tns:validarDatosResponse"/>
+
+<xs:complexType name="hello">
+<xs:sequence>
+<xs:element name="name" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="helloResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="consulta">
+<xs:sequence>
+<xs:element name="cedula" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="consultaResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="validarDatos">
+<xs:sequence>
+<xs:element name="arg0" type="xs:string" minOccurs="0"/>
+<xs:element name="arg1" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="validarDatosResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:usuario" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="usuario">
+<xs:sequence>
+<xs:element name="contrasena" type="xs:string" minOccurs="0"/>
+<xs:element name="idPersona" type="tns:persona" minOccurs="0"/>
+<xs:element name="idUsuario" type="xs:int"/>
+<xs:element name="listaUsuarioRol" type="tns:usuarioRol" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="usuario" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="persona">
+<xs:sequence>
+<xs:element name="apellido" type="xs:string" minOccurs="0"/>
+<xs:element name="celular" type="xs:string" minOccurs="0"/>
+<xs:element name="correo" type="xs:string" minOccurs="0"/>
+<xs:element name="dni" type="xs:string" minOccurs="0"/>
+<xs:element name="idPersona" type="xs:int"/>
+<xs:element name="listaFactura" type="tns:factura" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="listaUsuario" type="tns:usuario" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="nombre" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="factura">
+<xs:sequence>
+<xs:element name="descuento" type="xs:double"/>
+<xs:element name="fecha" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="idFactura" type="xs:int"/>
+<xs:element name="idPersona" type="tns:persona" minOccurs="0"/>
+<xs:element name="idTipoPago" type="tns:tipoPago" minOccurs="0"/>
+<xs:element name="ruc" type="xs:string" minOccurs="0"/>
+<xs:element name="total" type="xs:double"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="tipoPago">
+<xs:sequence>
+<xs:element name="descripcion" type="xs:string" minOccurs="0"/>
+<xs:element name="ifTipoPago" type="xs:int"/>
+<xs:element name="listaFactura" type="tns:factura" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="tipo" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="usuarioRol">
+<xs:sequence>
+<xs:element name="idRol" type="tns:rol" minOccurs="0"/>
+<xs:element name="idUsuario" type="tns:usuario" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="rol">
+<xs:sequence>
+<xs:element name="estado" type="xs:boolean"/>
+<xs:element name="idRol" type="xs:int"/>
+<xs:element name="listaRolCompetencia" type="tns:rolCompetencia" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="listaUsuarioRol" type="tns:usuarioRol" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="rol" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="rolCompetencia">
+<xs:sequence>
+<xs:element name="idCompetencia" type="tns:competencia" minOccurs="0"/>
+<xs:element name="idRol" type="tns:rol" minOccurs="0"/>
+<xs:element name="idRolCompetencia" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="competencia">
+<xs:sequence>
+<xs:element name="descripcion" type="xs:string" minOccurs="0"/>
+<xs:element name="idCompetencia" type="xs:int"/>
+<xs:element name="listaRolCompetencia" type="tns:rolCompetencia" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="nombre" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="diccionario">
+<xs:sequence>
+<xs:element name="palabra" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="diccionarioResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="euroAdolar">
+<xs:sequence>
+<xs:element name="euros" type="xs:double"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="euroAdolarResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:double" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>
